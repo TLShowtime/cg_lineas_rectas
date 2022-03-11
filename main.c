@@ -32,6 +32,7 @@ void create_lines(){
 
 void procesar_algoritmos_plotless(){
     int i,j;
+    printf("Fuerza Bruta\n");
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
             line1_plotless(cola_lineas[j]->x0, cola_lineas[j]->x1,
@@ -50,6 +51,7 @@ void procesar_algoritmos_plotless(){
                            cola_lineas[j]->y0, cola_lineas[j]->y1);
         }
     }
+    printf("Bresenham\n");
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
             line4_plotless(cola_lineas[j]->x0, cola_lineas[j]->x1,
@@ -60,24 +62,34 @@ void procesar_algoritmos_plotless(){
 
 void procesar_algoritmos(){
     int i,j;
+    glColor3f(1,1,1);
+    printf("Fuerza Bruta\n");
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
             line1(cola_lineas[j]->x0, cola_lineas[j]->x1,
                   cola_lineas[j]->y0, cola_lineas[j]->y1);
         }
     }
+
+    glColor3f(1,0,0);
+    printf("Incremental v1\n");
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
             line2(cola_lineas[j]->x0, cola_lineas[j]->x1,
                   cola_lineas[j]->y0, cola_lineas[j]->y1);
         }
     }
+    glColor3f(0,1,1);
+    printf("Incremental v2\n");
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
             line3(cola_lineas[j]->x0, cola_lineas[j]->x1,
                   cola_lineas[j]->y0, cola_lineas[j]->y1);
         }
     }
+
+    printf("Bresenham\n");
+    glColor3f(0,0,1);
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
             line4(cola_lineas[j]->x0, cola_lineas[j]->x1,
@@ -87,9 +99,8 @@ void procesar_algoritmos(){
 }
 
 void draw_scene(){
-    procesar_algoritmos_plotless();
+    //procesar_algoritmos_plotless();
     
-    glColor3f(1,1,1);
     procesar_algoritmos();
     glFlush();
 };
@@ -120,4 +131,3 @@ int main(int argc,char **argv){
 
     return 0;
 }
-
