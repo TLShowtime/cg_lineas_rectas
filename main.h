@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
+#include <ctype.h>
 
 #include "algoritmos/bruta.h"
 #include "algoritmos/incremental_v1.h"

@@ -105,12 +105,29 @@ void draw_scene(){
     glFlush();
 };
 
+int isNumber (char number[]){
+    int i = 0;
+
+    for (; number[i] != 0; i++){
+        if (!isdigit(number[i])){
+            return 0;
+        }
+    }
+    return 1;
+}
+
 int main(int argc,char **argv){
     if (argc != 4)
     {
       (void) fprintf(stdout,"Usage: %s resolucion #lineas #veces\n",argv[0]);
       exit(0);
     }
+
+    if (isNumber(argv[1]) == 0 || isNumber(argv[2]) == 0 || isNumber(argv[3]) == 0 ) {
+        printf("Los valores deben ser numeros naturales \n");
+      exit(0);
+    }
+
     char* res_ptr;
     char* lin_ptr;
     char* rep_ptr;
