@@ -49,7 +49,7 @@ void procesar_algoritmos_plotless(){
     seconds = end.tv_sec - begin.tv_sec;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %lf seconds\n", elapsed);
+    printf("Execution time: %Lf seconds\n", elapsed);
     
     printf("Incremental v1\n");
     gettimeofday(&begin, 0);
@@ -63,7 +63,7 @@ void procesar_algoritmos_plotless(){
     seconds = end.tv_sec - begin.tv_sec;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %lf seconds\n", elapsed);
+    printf("Execution time: %Lf seconds\n", elapsed);
     
     printf("Incremental v2\n");
     gettimeofday(&begin, 0);
@@ -77,7 +77,7 @@ void procesar_algoritmos_plotless(){
     seconds = end.tv_sec - begin.tv_sec;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %lf seconds\n", elapsed);
+    printf("Execution time: %Lf seconds\n", elapsed);
     
     printf("Bresenham\n");
     gettimeofday(&begin, 0);
@@ -91,7 +91,7 @@ void procesar_algoritmos_plotless(){
     seconds = end.tv_sec - begin.tv_sec;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %lf seconds\n", elapsed);
+    printf("Execution time: %Lf seconds\n", elapsed);
 }
 
 void procesar_algoritmos(){
@@ -103,6 +103,7 @@ void procesar_algoritmos(){
     printf("\n");
     printf("Plot\n");
     printf("Fuerza Bruta\n");
+    
     gettimeofday(&begin, 0);
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
@@ -114,10 +115,13 @@ void procesar_algoritmos(){
     seconds = end.tv_sec - begin.tv_sec;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %lf seconds\n", elapsed);
-
+    printf("Execution time: %Lf seconds\n", elapsed);
+    glFlush();
+    glutSetWindowTitle("Fuerza Bruta");
+    sleep(3);
     glColor3f(1,0,0);
     printf("Incremental v1\n");
+    
     gettimeofday(&begin, 0);
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
@@ -129,10 +133,13 @@ void procesar_algoritmos(){
     seconds = end.tv_sec - begin.tv_sec;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %lf seconds\n", elapsed);
-    
+    printf("Execution time: %Lf seconds\n", elapsed);
+    glFlush();
+    glutSetWindowTitle("Incremental v1");
+    sleep(3);
     glColor3f(0,1,1);
     printf("Incremental v2\n");
+    
     gettimeofday(&begin, 0);
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
@@ -144,10 +151,13 @@ void procesar_algoritmos(){
     seconds = end.tv_sec - begin.tv_sec;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %lf seconds\n", elapsed);
-
+    printf("Execution time: %Lf seconds\n", elapsed);
+    glFlush();
+    glutSetWindowTitle("Incremental v2");
+    sleep(3);
     glColor3f(0,0,1);
     printf("Bresenham\n");
+   
     gettimeofday(&begin, 0);
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
@@ -159,15 +169,16 @@ void procesar_algoritmos(){
     seconds = end.tv_sec - begin.tv_sec;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %lf seconds\n", elapsed);
-    
+    printf("Execution time: %Lf seconds\n", elapsed);
+    glFlush();
+    glutSetWindowTitle("Bresenham");
 }
 
 void draw_scene(){
     procesar_algoritmos_plotless();
     
     procesar_algoritmos();
-    glFlush();
+    
 };
 
 int isNumber (char number[]){
