@@ -62,7 +62,7 @@ void line2_plotless(int x0, int x1, int y0, int y1){
             y = y1;
         }
         for (i = var_inicial; i <= var_final; i++){
-            plot(i,(round(y)));
+            plot_nothing(i,(round(y)));
             y += m;
         }    
     } else { //Se usa si hay mas y
@@ -77,7 +77,7 @@ void line2_plotless(int x0, int x1, int y0, int y1){
             y = x1;
         }
         for (i = var_inicial; i <= var_final; i++){
-            plot(round(y),i);
+            plot_nothing(round(y),i);
             y += 1/m; // delta x es 1/m
         }
     }
