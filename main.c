@@ -32,74 +32,139 @@ void create_lines(){
 
 void procesar_algoritmos_plotless(){
     int i,j;
-    printf("Fuerza Bruta\n");
+    long seconds, microseconds;
+    double elapsed;
+    struct timeval begin, end;
+    printf("\n");
+    printf("Plotless\n");
+    printf("Fuerza Bruta:\n");
+    gettimeofday(&begin, 0);
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
             line1_plotless(cola_lineas[j]->x0, cola_lineas[j]->x1,
                            cola_lineas[j]->y0, cola_lineas[j]->y1);
         }
     }
+    gettimeofday(&end, 0);
+    seconds = end.tv_sec - begin.tv_sec;
+    microseconds = end.tv_usec - begin.tv_usec;
+    elapsed = (seconds + microseconds)*1e-6;
+    printf("Execution time: %lf seconds\n", elapsed);
+    
+    printf("Incremental v1\n");
+    gettimeofday(&begin, 0);
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
             line2_plotless(cola_lineas[j]->x0, cola_lineas[j]->x1,
                            cola_lineas[j]->y0, cola_lineas[j]->y1);
         }
     }
+    gettimeofday(&end, 0);
+    seconds = end.tv_sec - begin.tv_sec;
+    microseconds = end.tv_usec - begin.tv_usec;
+    elapsed = (seconds + microseconds)*1e-6;
+    printf("Execution time: %lf seconds\n", elapsed);
+    
+    printf("Incremental v2\n");
+    gettimeofday(&begin, 0);
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
             line3_plotless(cola_lineas[j]->x0, cola_lineas[j]->x1,
                            cola_lineas[j]->y0, cola_lineas[j]->y1);
         }
     }
+    gettimeofday(&end, 0);
+    seconds = end.tv_sec - begin.tv_sec;
+    microseconds = end.tv_usec - begin.tv_usec;
+    elapsed = (seconds + microseconds)*1e-6;
+    printf("Execution time: %lf seconds\n", elapsed);
+    
     printf("Bresenham\n");
+    gettimeofday(&begin, 0);
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
             line4_plotless(cola_lineas[j]->x0, cola_lineas[j]->x1,
                            cola_lineas[j]->y0, cola_lineas[j]->y1);
         }
     }
+    gettimeofday(&end, 0);
+    seconds = end.tv_sec - begin.tv_sec;
+    microseconds = end.tv_usec - begin.tv_usec;
+    elapsed = (seconds + microseconds)*1e-6;
+    printf("Execution time: %lf seconds\n", elapsed);
 }
 
 void procesar_algoritmos(){
     int i,j;
+    long seconds, microseconds;
+    double elapsed;
+    struct timeval begin, end;
     glColor3f(1,1,1);
+    printf("\n");
+    printf("Plot\n");
     printf("Fuerza Bruta\n");
+    gettimeofday(&begin, 0);
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
             line1(cola_lineas[j]->x0, cola_lineas[j]->x1,
                   cola_lineas[j]->y0, cola_lineas[j]->y1);
         }
     }
+    gettimeofday(&end, 0);
+    seconds = end.tv_sec - begin.tv_sec;
+    microseconds = end.tv_usec - begin.tv_usec;
+    elapsed = (seconds + microseconds)*1e-6;
+    printf("Execution time: %lf seconds\n", elapsed);
 
     glColor3f(1,0,0);
     printf("Incremental v1\n");
+    gettimeofday(&begin, 0);
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
             line2(cola_lineas[j]->x0, cola_lineas[j]->x1,
                   cola_lineas[j]->y0, cola_lineas[j]->y1);
         }
     }
+    gettimeofday(&end, 0);
+    seconds = end.tv_sec - begin.tv_sec;
+    microseconds = end.tv_usec - begin.tv_usec;
+    elapsed = (seconds + microseconds)*1e-6;
+    printf("Execution time: %lf seconds\n", elapsed);
+    
     glColor3f(0,1,1);
     printf("Incremental v2\n");
+    gettimeofday(&begin, 0);
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
             line3(cola_lineas[j]->x0, cola_lineas[j]->x1,
                   cola_lineas[j]->y0, cola_lineas[j]->y1);
         }
     }
+    gettimeofday(&end, 0);
+    seconds = end.tv_sec - begin.tv_sec;
+    microseconds = end.tv_usec - begin.tv_usec;
+    elapsed = (seconds + microseconds)*1e-6;
+    printf("Execution time: %lf seconds\n", elapsed);
 
-    printf("Bresenham\n");
     glColor3f(0,0,1);
+    printf("Bresenham\n");
+    gettimeofday(&begin, 0);
     for (i = 0; i < repeticiones; i++){
         for (j = 0; j < cant_lineas; j++ ){
             line4(cola_lineas[j]->x0, cola_lineas[j]->x1,
                   cola_lineas[j]->y0, cola_lineas[j]->y1);
         }
     }
+    gettimeofday(&end, 0);
+    seconds = end.tv_sec - begin.tv_sec;
+    microseconds = end.tv_usec - begin.tv_usec;
+    elapsed = (seconds + microseconds)*1e-6;
+    printf("Execution time: %lf seconds\n", elapsed);
+    
 }
 
 void draw_scene(){
-    //procesar_algoritmos_plotless();
+    procesar_algoritmos_plotless();
     
     procesar_algoritmos();
     glFlush();
