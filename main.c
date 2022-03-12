@@ -33,7 +33,7 @@ void create_lines(){
 void procesar_algoritmos_plotless(){
     int i,j;
     long seconds, microseconds;
-    double elapsed;
+    long double elapsed;
     struct timeval begin, end;
     printf("\n");
     printf("Plotless\n");
@@ -97,7 +97,7 @@ void procesar_algoritmos_plotless(){
 void procesar_algoritmos(){
     int i,j;
     long seconds, microseconds;
-    double elapsed;
+    long double elapsed;
     struct timeval begin, end;
     glColor3f(1,1,1);
     printf("\n");
