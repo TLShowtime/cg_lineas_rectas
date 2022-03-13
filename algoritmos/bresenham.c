@@ -22,7 +22,7 @@ void line4(int x0, int x1, int y0, int y1){
   if (x0<=x1){
     if (y0<=y1){
       Delta_NE  =  2 * ((y1 - y0) - (x1 - x0)); //Valor para avanzar un pixel hacia arriba y uno a la derecha
-      if (xAbs>=yAbs){ //cuadrante 1
+      if (xAbs>=yAbs){ //octante 1
         Delta_E   =  2 * (y1 - y0);                 //Valor para avanzar un pixel a la derecha
         while (x < x1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d <= 0){
@@ -36,7 +36,7 @@ void line4(int x0, int x1, int y0, int y1){
           plot(x,y);
         }
       }
-      else{ //Cuadrante 2
+      else{ //octante 2
         Delta_N  = -2 * (x1 - x0);             //Valor para avanzar un pixel hacia arriba
         while (y < y1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d >= 0){
@@ -53,7 +53,7 @@ void line4(int x0, int x1, int y0, int y1){
     }
     else{
       Delta_SE  =  2 * ((y1 - y0) + (x1 - x0)); //Valor para avanzar un pixel hacia abajo y uno a la derecha
-      if (xAbs<=yAbs){ //Cuadrante 7
+      if (xAbs<=yAbs){ //octante 7
         Delta_S   =  2 * (x1 - x0);             //Valor para avanzar un pixel hacia abajo
         while (y > y1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d <= 0){
@@ -67,7 +67,7 @@ void line4(int x0, int x1, int y0, int y1){
           plot(x,y);
         }
       }
-      else{ //cuadrante 8
+      else{ //octante 8
         Delta_E   =  2 * (y1 - y0);                 //Valor para avanzar un pixel a la derecha
         while (x < x1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d >= 0){
@@ -86,7 +86,7 @@ void line4(int x0, int x1, int y0, int y1){
   else{
     if (y0<=y1){
       Delta_NO  = -2 * ((y1 - y0) + (x1 - x0)); //Valor para avanzar un pixel hacia arriba y uno a la izquierda
-      if (yAbs>=xAbs){ //Cuadrante 3
+      if (yAbs>=xAbs){ //octante 3
         Delta_N   = -2 * (x1 - x0);             //Valor para avanzar un pixel hacia arriba
         while (y < y1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d <= 0){
@@ -100,7 +100,7 @@ void line4(int x0, int x1, int y0, int y1){
           plot(x,y);
         }
       }    
-      else{ //Cuadrante 4
+      else{ //octante 4
         Delta_O   = -2 * (y1 - y0);                 //Valor para avanzar un pixel a la izquierda
         while (x > x1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d >= 0){
@@ -117,7 +117,7 @@ void line4(int x0, int x1, int y0, int y1){
     }
     else{
       Delta_SO  = -2 * ((y1 - y0) - (x1 - x0)); //Valor para avanzar un pixel hacia abajo y uno a la izquierda
-      if (xAbs>=yAbs){ //Cuadrante 5
+      if (xAbs>=yAbs){ //octante 5
         Delta_O   = -2 * (y1 - y0);                 //Valor para avanzar un pixel a la izquierda
         while (x > x1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d <= 0){
@@ -131,7 +131,7 @@ void line4(int x0, int x1, int y0, int y1){
           plot(x,y);
         }
       }
-      else{ //Cuadrante 6
+      else{ //octante 6
         Delta_S   =  2 * (x1 - x0);               //Valor para avanzar un pixel hacia abajo
         while (y > y1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d >= 0){
@@ -172,7 +172,7 @@ void line4_plotless(int x0, int x1, int y0, int y1){
   if (x0<=x1){
     if (y0<=y1){
       Delta_NE  =  2 * ((y1 - y0) - (x1 - x0)); //Valor para avanzar un pixel hacia arriba y uno a la derecha
-      if (xAbs>=yAbs){ //cuadrante 1
+      if (xAbs>=yAbs){ //octante 1
         Delta_E   =  2 * (y1 - y0);                 //Valor para avanzar un pixel a la derecha
         while (x < x1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d <= 0){
@@ -186,7 +186,7 @@ void line4_plotless(int x0, int x1, int y0, int y1){
           plot_nothing(x,y);
         }
       }
-      else{ //Cuadrante 2
+      else{ //octante 2
         Delta_N  = -2 * (x1 - x0);             //Valor para avanzar un pixel hacia arriba
         while (y < y1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d >= 0){
@@ -203,7 +203,7 @@ void line4_plotless(int x0, int x1, int y0, int y1){
     }
     else{
       Delta_SE  =  2 * ((y1 - y0) + (x1 - x0)); //Valor para avanzar un pixel hacia abajo y uno a la derecha
-      if (x1+y1<=y0){ //Cuadrante 7
+      if (x1+y1<=y0){ //octante 7
         Delta_S   =  2 * (x1 - x0);             //Valor para avanzar un pixel hacia abajo
         while (y > y1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d <= 0){
@@ -217,7 +217,7 @@ void line4_plotless(int x0, int x1, int y0, int y1){
           plot_nothing(x,y);
         }
       }
-      else{ //cuadrante 8
+      else{ //octante 8
         Delta_E   =  2 * (y1 - y0);                 //Valor para avanzar un pixel a la derecha
         while (x < x1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d >= 0){
@@ -236,7 +236,7 @@ void line4_plotless(int x0, int x1, int y0, int y1){
   else{
     if (y0<=y1){
       Delta_NO  = -2 * ((y1 - y0) + (x1 - x0)); //Valor para avanzar un pixel hacia arriba y uno a la izquierda
-      if (x1+y1>=x0){ //Cuadrante 3
+      if (x1+y1>=x0){ //octante 3
         Delta_N   = -2 * (x1 - x0);             //Valor para avanzar un pixel hacia arriba
         while (y < y1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d <= 0){
@@ -250,7 +250,7 @@ void line4_plotless(int x0, int x1, int y0, int y1){
           plot_nothing(x,y);
         }
       }    
-      else{ //Cuadrante 4
+      else{ //octante 4
         Delta_O   = -2 * (y1 - y0);                 //Valor para avanzar un pixel a la izquierda
         while (x > x1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d >= 0){
@@ -267,7 +267,7 @@ void line4_plotless(int x0, int x1, int y0, int y1){
     }
     else{
       Delta_SO  = -2 * ((y1 - y0) - (x1 - x0)); //Valor para avanzar un pixel hacia abajo y uno a la izquierda
-      if (xAbs>=yAbs){ //Cuadrante 5
+      if (xAbs>=yAbs){ //octante 5
         Delta_O   = -2 * (y1 - y0);                 //Valor para avanzar un pixel a la izquierda
         while (x > x1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d <= 0){
@@ -281,7 +281,7 @@ void line4_plotless(int x0, int x1, int y0, int y1){
           plot_nothing(x,y);
         }
       }
-      else{ //Cuadrante 6
+      else{ //octante 6
         Delta_S   =  2 * (x1 - x0);               //Valor para avanzar un pixel hacia abajo
         while (y > y1){ //escoge cual pixel pintar de acuerdo al signo de "d" hasta terminar la linea
           if (d >= 0){

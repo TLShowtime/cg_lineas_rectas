@@ -22,18 +22,13 @@ void create_lines(){
         cola_lineas[i]->x1 = rand() % resolucion;
         cola_lineas[i]->y1 = rand() % resolucion;
     }
-
-    for (int i = 0; i < cant_lineas; i++){
-        printf("x0: %d, y0: %d \n",cola_lineas[i]->x0, cola_lineas[i]->y0);
-        printf("x1: %d, y1: %d \n",cola_lineas[i]->x1, cola_lineas[i]->y1);
-    }
 };
 
 
 void procesar_algoritmos_plotless(){
     int i,j;
-    long seconds, microseconds;
-    long double elapsed;
+    double seconds, microseconds;
+    double elapsed;
     struct timeval begin, end;
     printf("\n");
     printf("Plotless\n");
@@ -46,10 +41,10 @@ void procesar_algoritmos_plotless(){
         }
     }
     gettimeofday(&end, 0);
-    seconds = end.tv_sec - begin.tv_sec;
+    seconds = (end.tv_sec - begin.tv_sec)* 1e6;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %Lf seconds\n", elapsed);
+    printf("Execution time: %f seconds\n", elapsed);
     
     printf("Incremental v1\n");
     gettimeofday(&begin, 0);
@@ -60,10 +55,10 @@ void procesar_algoritmos_plotless(){
         }
     }
     gettimeofday(&end, 0);
-    seconds = end.tv_sec - begin.tv_sec;
+    seconds = (end.tv_sec - begin.tv_sec)* 1e6;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %Lf seconds\n", elapsed);
+    printf("Execution time: %f seconds\n", elapsed);
     
     printf("Incremental v2\n");
     gettimeofday(&begin, 0);
@@ -74,10 +69,10 @@ void procesar_algoritmos_plotless(){
         }
     }
     gettimeofday(&end, 0);
-    seconds = end.tv_sec - begin.tv_sec;
+    seconds = (end.tv_sec - begin.tv_sec)* 1e6;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %Lf seconds\n", elapsed);
+    printf("Execution time: %f seconds\n", elapsed);
     
     printf("Bresenham\n");
     gettimeofday(&begin, 0);
@@ -88,16 +83,16 @@ void procesar_algoritmos_plotless(){
         }
     }
     gettimeofday(&end, 0);
-    seconds = end.tv_sec - begin.tv_sec;
+    seconds = (end.tv_sec - begin.tv_sec)* 1e6;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %Lf seconds\n", elapsed);
+    printf("Execution time: %f seconds\n", elapsed);
 }
 
 void procesar_algoritmos(){
     int i,j;
-    long seconds, microseconds;
-    long double elapsed;
+    double seconds, microseconds;
+    double elapsed;
     struct timeval begin, end;
     glColor3f(1,1,1);
     printf("\n");
@@ -112,10 +107,10 @@ void procesar_algoritmos(){
         }
     }
     gettimeofday(&end, 0);
-    seconds = end.tv_sec - begin.tv_sec;
+    seconds = (end.tv_sec - begin.tv_sec)* 1e6;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %Lf seconds\n", elapsed);
+    printf("Execution time: %f seconds\n", elapsed);
     glFlush();
     glutSetWindowTitle("Fuerza Bruta");
     sleep(3);
@@ -130,10 +125,10 @@ void procesar_algoritmos(){
         }
     }
     gettimeofday(&end, 0);
-    seconds = end.tv_sec - begin.tv_sec;
+    seconds = (end.tv_sec - begin.tv_sec)* 1e6;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %Lf seconds\n", elapsed);
+    printf("Execution time: %f seconds\n", elapsed);
     glFlush();
     glutSetWindowTitle("Incremental v1");
     sleep(3);
@@ -148,10 +143,10 @@ void procesar_algoritmos(){
         }
     }
     gettimeofday(&end, 0);
-    seconds = end.tv_sec - begin.tv_sec;
+    seconds = (end.tv_sec - begin.tv_sec)* 1e6;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %Lf seconds\n", elapsed);
+    printf("Execution time: %f seconds\n", elapsed);
     glFlush();
     glutSetWindowTitle("Incremental v2");
     sleep(3);
@@ -166,10 +161,10 @@ void procesar_algoritmos(){
         }
     }
     gettimeofday(&end, 0);
-    seconds = end.tv_sec - begin.tv_sec;
+    seconds = (end.tv_sec - begin.tv_sec)* 1e6;
     microseconds = end.tv_usec - begin.tv_usec;
     elapsed = (seconds + microseconds)*1e-6;
-    printf("Execution time: %Lf seconds\n", elapsed);
+    printf("Execution time: %f seconds\n", elapsed);
     glFlush();
     glutSetWindowTitle("Bresenham");
 }
