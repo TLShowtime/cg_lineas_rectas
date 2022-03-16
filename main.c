@@ -173,7 +173,6 @@ void draw_scene(){
     procesar_algoritmos_plotless();
     
     procesar_algoritmos();
-    
 };
 
 int isNumber (char number[]){

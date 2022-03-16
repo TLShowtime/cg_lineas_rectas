@@ -10,7 +10,6 @@ void line1(int x0, int x1, int y0, int y1){
   b = y0 - m*x0;
   x = x1-x0; x = fabs(x); 
   y = y1-y0; y = fabs(y); 
-
   if (x>=y){  //Se realizan comparaciones para averiguar sobre cual eje ir pintando y en que dirección pintar
     if (x0 > x1){
       for (i = x1; i<=x0; i++){ //Pinta hacia la izquierda usando el eje x como base
